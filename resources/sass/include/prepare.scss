@@ -1,0 +1,128 @@
+section.prepare {
+  background: rgba(39,35,70,.1);
+  position: relative;
+  overflow: hidden;
+  .container {
+    z-index: 10;
+  }
+  .accordion-div {
+    display: flex;
+    align-items: flex-start;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+
+    @include media-lg {
+      flex-direction: column-reverse;
+      padding: 0 1.5rem;
+    }
+
+    .accordions {
+      @import "inc-accordion";
+      flex: 0 0 calc(55% - 3rem);
+      margin: 0 1.5rem;
+
+      @include media-lg {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 0;
+      }
+
+      .accordion {
+        padding-left: 3rem;
+        p {
+          @include media-md {
+            font-size: 1.2rem !important;
+          }
+        }
+        &:before {
+          content: '';
+          background-color: transparent;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31.085 4.37474C30.6142 3.90317 29.8504 3.90236 29.3797 4.37273L14.9114 18.8029L9.69123 13.1333C9.24016 12.6437 8.47754 12.6119 7.9871 13.0629C7.49704 13.514 7.46566 14.277 7.91673 14.767L13.9871 21.3596C14.2094 21.6012 14.5205 21.7415 14.8486 21.7484C14.8574 21.7487 14.8659 21.7487 14.8744 21.7487C15.1932 21.7487 15.4999 21.6221 15.7258 21.397L31.0826 6.08042C31.5545 5.61011 31.5554 4.8463 31.085 4.37474Z' fill='%23F63E41'/%3E%3Cpath d='M30.7939 14.7939C30.1278 14.7939 29.5879 15.3338 29.5879 16C29.5879 23.4927 23.4927 29.5879 16 29.5879C8.50775 29.5879 2.41206 23.4927 2.41206 16C2.41206 8.50775 8.50775 2.41206 16 2.41206C16.6661 2.41206 17.2061 1.87219 17.2061 1.20606C17.2061 0.539875 16.6661 0 16 0C7.1775 0 0 7.1775 0 16C0 24.8221 7.1775 32 16 32C24.8221 32 32 24.8221 32 16C32 15.3339 31.4601 14.7939 30.7939 14.7939Z' fill='%23272346'/%3E%3C/svg%3E");
+          width: 1.8rem;
+          height: 1.8rem;
+          top: 1.75rem;
+          @include media-lg {
+            top: 1.3rem;
+          }
+        }
+      }
+    }
+    .image {
+      flex: 0 0 calc(45% - 3rem);
+      margin: 0 1.5rem;
+
+      @include media-lg {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 0 0 2rem 0;
+      }
+
+      img {
+        border-radius: .75rem;
+
+        @include media-lg {
+          max-width: 390px;
+          margin: 0 auto;
+          display: block;
+        }
+
+        @include media-xs {
+          max-width: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  --r1Size: 50rem;
+  --r1Background: white;
+  --r1R: -40.625rem;
+  --r1T: -25rem;
+  --r1Opacity: .5;
+  --r1Visibility: visible;
+
+  --r2Size: 50rem;
+  --r2Background: white;
+  --r2R: -18.75rem;
+  --r2B: -25rem;
+  --r2Opacity: .2;
+  --r2Visibility: visible;
+
+  --r3Size: 50rem;
+  --r3Background: white;
+  --r3L: -25rem;
+  --r3B: -25rem;
+  --r3Opacity: .4;
+  --r3Visibility: visible;
+
+  --r4Size: 75rem;
+  --r4Background: white;
+  --r4L: -37.5rem;
+  --r4B: -43.75rem;
+  --r4Opacity: .2;
+  --r4Visibility: visible;
+
+  @include media-md {
+    --r1Size: 30rem;
+    --r1R: -20rem;
+    --r2Size: 30rem;
+    --r2R: -15rem;
+    --r2B: -15rem;
+    --r3Size: 30rem;
+    --r3L: -20rem;
+    --r3B: -20rem;
+    --r4Size: 40rem;
+    --r4L: -24.5rem;
+    --r4B: -23.75rem;
+  }
+
+  @include media-xs {
+    --r2Visibility: hidden;
+  }
+
+  @import "inc-rounded1";
+  @import "inc-rounded2";
+  @import "inc-rounded3";
+  @import "inc-rounded4";
+}

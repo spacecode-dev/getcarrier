@@ -1,0 +1,150 @@
+section.types {
+  position: relative;
+  background: rgba(39, 35, 70, 0.1);
+  .container {
+    z-index: 10;
+  }
+  .columns {
+    &.mb-6 {
+      @include media-lg {
+        margin-bottom: 1.5rem !important;
+      }
+    }
+    &.block {
+      margin-bottom: 0;
+
+      .column {
+        display: flex;
+        position: relative;
+
+        &:hover > .help {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .card {
+    border-radius: .625rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 6rem;
+    margin: 1rem;
+    box-shadow: none;
+    min-height: 21.875rem;
+    @include media-lg {
+      padding: 3.5rem 3rem;
+      min-height: 16.875rem;
+    }
+    @include media-md {
+      padding: 2rem;
+      min-height: auto;
+    }
+    img {
+      width: 5rem;
+      height: 4rem;
+      object-fit: contain;
+      @include media-md {
+        width: 4.5rem;
+        height: 3.5rem;
+      }
+      @include media-sm {
+        width: 4rem;
+        height: 3rem;
+      }
+    }
+    h3 {
+      text-align: center;
+      line-height: 1.2;
+    }
+  }
+  .help {
+    opacity: 0;
+    z-index: 30;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+    overflow: hidden;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 1rem;
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    background: $danger;
+    border: .0625rem solid $danger;
+    box-sizing: border-box;
+    box-shadow: 0 .25rem 1.25rem rgba(0, 0, 0, 0.25);
+    border-radius: .625rem;
+    text-align: center;
+    &:before, &:after {
+      content: '';
+      position: absolute;
+    }
+    &:before {
+      background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 100%);
+      width: 20rem;
+      height: 20rem;
+      border-radius: 20rem;
+      left: -10rem;
+      bottom: -12rem;
+      opacity: .3;
+    }
+    &:after {
+      background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 100%);
+      width: 32rem;
+      height: 32rem;
+      border-radius: 32rem;
+      left: -14rem;
+      bottom: -18rem;
+      opacity: .1;
+    }
+    a {
+      padding: 3rem 2rem 1rem 2rem;
+      z-index: 10;
+      text-decoration: none;
+      overflow: auto;
+      h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      p {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+        @include media-lg {
+          -webkit-line-clamp: 6;
+        }
+        @include media-md {
+          -webkit-line-clamp: 2;
+        }
+      }
+      @include media-lg {
+        padding: 2rem 1rem;
+      }
+    }
+  }
+
+  --r1Size: 25rem;
+  --r1Background: white;
+  --r1L: -12.5rem;
+  --r1B: -12.5rem;
+  --r1Opacity: .6;
+  --r1Visibility: visible;
+
+  --r2Size: 38rem;
+  --r2Background: white;
+  --r2L: -19rem;
+  --r2B: -19rem;
+  --r2Opacity: .3;
+  --r2Visibility: visible;
+
+  @import "inc-rounded1";
+  @import "inc-rounded2";
+}

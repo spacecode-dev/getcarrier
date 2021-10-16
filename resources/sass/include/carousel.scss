@@ -1,0 +1,292 @@
+@import "../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
+section.carousel {
+  &.grey {
+    background: rgba(39,35,70,.1);
+    position: relative;
+    overflow: hidden;
+    .container {
+      z-index: 10;
+    }
+    .card {
+      box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    --r1Size: 50rem;
+    --r1Background: linear-gradient(330deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    --r1R: -40.625rem;
+    --r1T: -25rem;
+    --r1Opacity: 1;
+    --r1Visibility: visible;
+
+    --r2Size: 50rem;
+    --r2Background: white;
+    --r2R: -18.75rem;
+    --r2B: -25rem;
+    --r2Opacity: .2;
+    --r2Visibility: visible;
+
+    --r3Size: 50rem;
+    --r3Background: white;
+    --r3L: -42rem;
+    --r3B: -25rem;
+    --r3Opacity: .4;
+    --r3Visibility: visible;
+
+    --r4Size: 75rem;
+    --r4Background: white;
+    --r4L: -37.5rem;
+    --r4T: -43.75rem;
+    --r4Opacity: .2;
+    --r4Visibility: visible;
+
+    @import "inc-rounded1";
+    @import "inc-rounded2";
+    @import "inc-rounded3";
+    @import "inc-rounded4";
+
+  }
+  &.dark {
+    background: $dark;
+    position: relative;
+    overflow: hidden;
+    .container {
+      z-index: 10;
+    }
+    .owl-carousel .owl-nav button:before {
+      background-image: url('../images/arrow22.png');
+    }
+    .owl-carousel .owl-dots .owl-dot.active {
+      span {
+        border: .0625rem solid $grey;
+        background: $grey;
+      }
+    }
+    .bg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .owl-carousel {
+    opacity: 0;
+    margin-top: -1.875rem;
+    position: relative;
+    .owl-stage {
+      display: flex;
+      .owl-item {
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+    .owl-dots {
+      .owl-dot {
+        border: 0;
+        background: transparent;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+        &.active {
+          span {
+            border: .0625rem solid $dark;
+            background: $dark;
+          }
+        }
+        span {
+          margin: .3125rem .375rem;
+          border: .0625rem solid $grey;
+          background: transparent;
+          transition: border .3s ease, background .3s ease;
+        }
+      }
+      &.disabled {
+        display: none;
+      }
+    }
+    .owl-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      position: absolute;
+      width: 100%;
+      top: calc(50% + 1rem);
+      transform: translate(0, -50%);
+      height: 0;
+      &.disabled {
+        display: none;
+      }
+      button {
+        margin: 0;
+        padding: 0;
+        border: 0 !important;
+        background: transparent;
+        color: $dark;
+        position: absolute;
+        width: 3.75rem;
+        height: 3.75rem;
+        outline: none !important;
+        span {
+          display: none;
+        }
+        &.owl-next {
+          right: -3.125rem;
+          @media screen and (max-width: 66.25rem) {
+            right: -2.5rem;
+          }
+          @include media-md {
+            right: -3.125rem;
+          }
+          @include media-sm {
+            right: 0;
+          }
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+        &.owl-prev {
+          left: -3.125rem;
+          @media screen and (max-width: 66.25rem) {
+            left: -2.5rem;
+          }
+          @include media-md {
+            left: -3.125rem;
+          }
+          @include media-sm {
+            left: 0;
+          }
+        }
+        &.disabled {
+          opacity: .2;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          background-image: url('../images/arrow2.png');
+          background-size: .875rem;
+          background-repeat: no-repeat;
+          background-position: center;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+  .columns.mb-6 {
+    @include media-lg {
+      margin-bottom: 1.5rem !important;
+    }
+  }
+  .card {
+    width: 100%;
+    border-radius: .625rem;
+    overflow: hidden;
+    background: white;
+    border: .0625rem solid $grey;
+    box-sizing: border-box;
+    box-shadow: none;
+    margin: 1.875rem auto 0 auto;
+    max-width: 25.625rem;
+    @include media-lg {
+      max-width: 18.125rem;
+    }
+    @include media-md {
+      max-width: 19.375rem;
+    }
+    @include media-sm {
+      max-width: 25rem;
+    }
+    .card-header {
+      height: 4.875rem;
+      background: $second;
+      border-radius: .5rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      box-shadow: none;
+      @include media-lg {
+        height: 4.375rem;
+        padding: .5rem 1rem;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        right: .9375rem;
+        bottom: -.4375rem;
+        background-image: url('../images/dot.png');
+        background-size: contain;
+        width: 1.1875rem;
+        height: .9375rem;
+      }
+      .logo {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 2.5rem;
+        background: white;
+        margin-right: 1.25rem;
+        @include media-lg {
+          margin-right: .625rem;
+          width: 2.1875rem;
+          height: 2.1875rem;
+        }
+        img {
+          padding: .5rem;
+          @include media-lg {
+            padding: .4375rem;
+          }
+        }
+      }
+      .author {
+        h5 {
+          font-weight: bold;
+          font-size: 1.25rem;
+          @include media-lg {
+            font-size: 1rem;
+          }
+        }
+        .recommend {
+          color: $dark;
+          line-height: 1;
+          p {
+            color: $dark;
+            font-size: .875rem;
+            @include media-lg {
+              font-size: .75rem;
+            }
+          }
+          .stars {
+            --ratingSize: 4.375rem;
+            @include media-lg {
+              --ratingSize: 3.4375rem;
+            }
+          }
+        }
+      }
+      .date {
+        margin-left: auto;
+        color: $muted;
+        font-size: .875rem;
+      }
+    }
+    .card-content {
+      @include media-lg {
+        padding: 1rem;
+      }
+      p {
+        @include media-lg {
+          font-size: .875rem;
+        }
+      }
+    }
+  }
+}

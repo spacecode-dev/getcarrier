@@ -1,0 +1,87 @@
+section {
+  &.banner#main {
+    padding-bottom: 0;
+    padding-top: 8rem;
+    @include media-sm {
+      padding-bottom: 2rem;
+    }
+    .columns {
+      justify-content: center;
+      @include media-lg {
+        flex-direction: column-reverse;
+      }
+      .column {
+        &:first-child {
+          flex-basis: auto;
+          max-width: 56.25rem;
+          @include media-lg {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    .container {
+      h1 {
+        color: white;
+        &:before {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+  &.content {
+    padding-top: 4rem;
+    margin-bottom: 0;
+    padding-bottom: 4rem;
+    @include media-md {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    @include media-sm {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .columns {
+      @include media-lg {
+        flex-direction: column-reverse;
+      }
+      .column {
+        &:first-child {
+          flex-basis: auto;
+          max-width: 56.25rem;
+          @include media-lg {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    .contentAll {
+      p {
+        color: $dark;
+      }
+      ul, ol {
+        color: $dark;
+      }
+      a {
+        text-decoration: dotted underline $dark;
+        font-weight: bold;
+        color: $dark;
+        &:hover {
+          text-decoration: underline $danger;
+          color: $danger;
+        }
+      }
+      blockquote {
+        font-weight: bold;
+        font-style: italic;
+        color: $dark;
+        background: transparent;
+        border-left: .25rem solid $danger;
+        font-size: 1.2rem;
+        @include media-xs {
+          padding: .5em .75rem;
+        }
+      }
+    }
+  }
+}

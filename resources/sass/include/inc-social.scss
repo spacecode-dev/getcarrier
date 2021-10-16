@@ -1,0 +1,48 @@
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  .button {
+    height: 2.25rem;
+    color: $dark;
+    opacity: .5;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    transition: opacity .3s ease;
+    @include media-lg {
+      font-size: .875rem;
+    }
+    @include media-md {
+      display: flex !important;
+      width: 2.8125rem !important;
+      height: 2.8125rem !important;
+      padding: 0 !important;
+    }
+    @include media-xs {
+      width: 2.4rem !important;
+      height: 2.4rem !important;
+      margin: .2rem .3rem !important;
+    }
+    svg {
+      @include media-xs {
+        width: .75rem;
+        height: auto;
+        max-height: .875rem;
+      }
+    }
+    &:not(:first-child) {
+      margin-left: .625rem;
+    }
+    &:hover {
+      opacity: 1;
+    }
+    span {
+      margin-left: .5rem;
+      @include media-md {
+        display: none;
+      }
+    }
+  }
+}

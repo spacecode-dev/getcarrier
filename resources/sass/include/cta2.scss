@@ -1,0 +1,105 @@
+section.cta2 {
+  background: $dark;
+  box-shadow: 0 .25rem .25rem rgba(0, 0, 0, 0.25);
+  padding: 1.6rem 1.5rem;
+  position: relative;;
+  z-index: 10;
+  .container {
+    z-index: 10;
+  }
+  .column {
+    @include media-md {
+      flex-direction: column !important;
+    }
+  }
+  h2 {
+    @include media-md {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  }
+  .block {
+    position: relative;
+    img {
+      position: absolute;
+      left: -13.75rem;
+      bottom: -1.625rem;
+      @include media-sm {
+        display: none;
+      }
+    }
+  }
+  .button.cta {
+    border: .0625rem solid white;
+    background: transparent;
+    margin-right: 0;
+    font-weight: 700;
+    &:hover {
+      background-color: white;
+      border-color: white;
+      color: $dark !important;
+      &.phone:before {
+        background-image: url("../images/phone.png");
+      }
+    }
+    &.phone {
+      &:before {
+        content: '';
+        background-image: url("../images/phone-w.png");
+        width: 1.15rem;
+        height: 1.15rem;
+        position: absolute;
+        left: 2.5rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include media-md {
+          left: 1.75rem;
+        }
+      }
+    }
+    &:not(.phone):before {
+      display: none;
+    }
+  }
+
+  .rounds {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    --r1Size: 75rem;
+    --r1Background: white;
+    --r1R: -12.5rem;
+    --r1B: -21.875rem;
+    --r1Opacity: .15;
+    --r1Visibility: visible;
+
+    --r2Size: 75rem;
+    --r2Background: white;
+    --r2R: -6.25rem;
+    --r2B: -21.875rem;
+    --r2Opacity: .15;
+    --r2Visibility: visible;
+
+    @include media-md {
+      --r1Size: 50rem;
+      --r2Size: 50rem;
+    }
+
+    @include media-sm {
+      --r1Size: 35rem;
+      --r2Size: 35rem;
+    }
+
+    @include media-xs {
+      --r1R: -22.5rem;
+      --r2R: -16.25rem;
+    }
+
+    @import "inc-rounded1";
+    @import "inc-rounded2";
+  }
+}

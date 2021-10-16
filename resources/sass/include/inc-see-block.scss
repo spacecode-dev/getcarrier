@@ -1,0 +1,21 @@
+.see-block {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  .button {
+    font-weight: bold;
+    min-width: 16.5rem;
+    @include media-lg {
+      min-width: 13.75rem;
+    }
+    &:hover {
+      background-color: #423E5D;
+      border-color: #423E5D;
+      color: white !important;
+    }
+    &:before, &:after {
+      background-image: url('../images/arrow-b.png');
+      opacity: .15;
+    }
+  }
+}

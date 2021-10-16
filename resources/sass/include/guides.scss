@@ -1,0 +1,265 @@
+section {
+  &.banner {
+    margin: 0;
+    padding-bottom: 4rem;
+    padding-top: 8rem;
+    @include media-sm {
+      padding-bottom: 3rem;
+      padding-top: 7rem;
+    }
+    .bgImg {
+      right: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      object-fit: cover;
+      opacity: .85;
+    }
+  }
+  &.guideList {
+    padding-top: 0;
+    z-index: 30;
+    position: relative;
+    margin-top: -1.875rem;
+    padding-bottom: 2rem;
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: .625rem;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+      & > * {
+        &:nth-child(1) {
+          order: 6;
+        }
+        &:nth-child(2) {
+          order: 1;
+        }
+        &:nth-child(3) {
+          order: 2;
+        }
+        &:nth-child(4) {
+          order: 3;
+        }
+        &:nth-child(5) {
+          order: 4;
+        }
+        &:nth-child(6) {
+          order: 5;
+        }
+        &:nth-child(7) {
+          order: 7;
+        }
+        &:nth-child(8) {
+          order: 8;
+        }
+        &:nth-child(9) {
+          order: 9;
+        }
+        &:nth-child(10) {
+          order: 10;
+        }
+        &:nth-child(11) {
+          order: 11;
+        }
+        &:nth-child(12) {
+          order: 12;
+        }
+      }
+      @import "inc-guideCard";
+      .action {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        margin: 4rem .625rem;
+        background: rgba(39, 35, 70, 0.1);
+        border-radius: .625rem;
+        padding: 1.5rem 3rem;
+        @include media-lg {
+          padding: 1.5rem;
+          margin: 2.5rem .625rem 0 .625rem;
+        }
+        @include media-sm {
+          padding: 2rem;
+          flex-direction: column;
+        }
+        @include media-xs {
+          margin: 2rem 1.5rem 1rem 1.5rem;
+        }
+        .title {
+          margin: 0;
+          @include media-sm {
+            text-align: center;
+            margin-bottom: 1rem;
+          }
+          h2 {
+            @include media-lg {
+              font-size: 2rem !important;
+            }
+            @include media-md {
+              font-size: 1.6rem !important;
+            }
+          }
+          .subtitle {
+            @include media-lg {
+              margin-top: 0;
+            }
+            @include media-md {
+              font-size: 1.1rem !important;
+            }
+          }
+          h2 {
+            font-size: 2.4rem;
+            line-height: 1;
+            margin-bottom: .25rem;
+          }
+          p {
+            color: #272346;
+            font-size: 1.3rem !important;
+          }
+        }
+        .img {
+          @include media-lg {
+            width: 10.625rem;
+          }
+          @include media-md {
+            display: none;
+          }
+        }
+        .buttons {
+          .button {
+            margin-bottom: 0;
+            @include media-lg {
+              height: 3.125rem;
+              max-height: 3.125rem;
+              padding: 0.85rem 2.5rem;
+            }
+            @include media-md {
+              margin-right: 3rem;
+            }
+            @include media-sm {
+              margin-right: 0;
+            }
+            @include media-xs {
+              &:after, &:before {
+                display: none;
+              }
+            }
+            &:after, &:before {
+              background-image: url('../images/arrow-b.png');
+              opacity: 0.15;
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      li {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: .125rem solid $second;
+        background: transparent;
+        transition: background .3s ease;
+        border-radius: 10rem;
+        margin: 0.3125rem;
+        @include media-xs {
+          font-size: .875rem;
+          width: 2.1875rem;
+          height: 2.1875rem;
+        }
+        &:not(.disabled):not(.active) {
+          cursor: pointer;
+          &:hover {
+            background: $second;
+          }
+        }
+        &.disabled {
+          opacity: .4;
+        }
+        &.disabled, &.active {
+          cursor: default;
+        }
+        &:first-child {
+          a, span {
+            &:before {
+              transform: translate(-50%, -50%) rotate(180deg);
+            }
+          }
+        }
+        &:last-child {
+          a, span {
+            &:before {
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+        &:first-child, &:last-child {
+          a, span {
+            font-size: 0;
+            position: relative;
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            margin: 0;
+            &:before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 492.004 492.004'%3E%3Cpath fill='%23272346' d='M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z'/%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-size: .6875rem;
+              width: .5625rem;
+              height: .6875rem;
+              @include media-xs {
+                background-size: .5625rem;
+                width: .4375rem;
+                height: .5625rem;
+              }
+            }
+          }
+        }
+        &.active {
+          background: #272346;
+          border: .125rem solid #272346;
+          a, span {
+            color: white;
+          }
+        }
+        a, span {
+          color: #272346;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  #lead {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    & > div {
+      top: 6.25rem;
+      &.sticky {
+        position: fixed;
+        bottom: unset;
+        width: 100%;
+        &.stop {
+          position: absolute !important;
+          bottom: .8125rem !important;
+          top: unset !important;
+        }
+      }
+    }
+  }
+}

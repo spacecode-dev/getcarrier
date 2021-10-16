@@ -1,0 +1,219 @@
+section.kind {
+  background: rgba(39,35,70,.1);
+  position: relative;
+  overflow: hidden;
+
+  .container {
+    z-index: 10;
+  }
+
+  .card {
+    background: transparent;
+    border-radius: 1rem;
+    overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+    .image {
+      border-radius: 1rem;
+      overflow: hidden;
+      img {
+        max-height: 240px;
+        object-fit: cover;
+        object-position: center;
+        @include media-sm {
+          min-height: 160px;
+        }
+      }
+    }
+    h3:not(.pretitle) {
+      line-height: 1.1;
+      @include media-lg {
+        font-size: 1.2rem;
+      }
+    }
+    h3.pretitle {
+      display: block;
+      background: #E9E9ED;
+      margin-top: -1.75rem;
+      padding: .75rem 4rem;
+      border-radius: 10rem;
+      z-index: 10;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      @include media-md {
+        text-align: center;
+        font-size: 1rem !important;
+        padding: 0.5rem 2.5rem;
+        margin-top: -1.25rem;
+      }
+      @include media-sm {
+        position: relative;
+        margin-top: -1.5rem;
+      }
+    }
+    .lists {
+      background: white;
+      padding: 5.5rem 2rem 3rem 2rem;
+      margin-top: -1rem;
+      display: flex;
+      flex-wrap: wrap;
+      @include media-lg {
+        padding: 4.5rem 2rem 2rem 2rem;
+      }
+      @include media-sm {
+        padding: 2.5rem 1rem 1rem 1rem;
+      }
+    }
+
+    &.openTrailer {
+      .lists {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        @include media-md {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .list {
+          flex: 0 0 calc(33.3% - 3rem);
+          margin: 0 1.5rem;
+          position: relative;
+          @include media-md {
+            flex: 0 0 100%;
+            margin: 0 0 1rem 0;
+            padding-bottom: 1rem;
+          }
+          &:last-child {
+            @include media-md {
+              margin: 0;
+              padding-bottom: 0;
+            }
+          }
+          &:not(:last-child) {
+
+            @include media-md {
+              border-bottom: 1px solid #DEDEE3;
+            }
+
+            &:before {
+              content: '';
+              background: #DEDEE3;
+              width: 1px;
+              top: 0;
+              bottom: 0;
+              right: -1.5rem;
+              position: absolute;
+              @include media-md {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.enclosedTrailer {
+      .lists {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        justify-content: center;
+        @include media-md {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .list {
+          flex: 0 0 calc(33.3% - 3rem);
+          margin: 0 1.5rem;
+          position: relative;
+          @include media-md {
+            flex: 0 0 100%;
+            margin: 0 0 1rem 0;
+            padding-bottom: 1rem;
+          }
+          &:not(:last-child) {
+            @include media-md {
+              border-bottom: 1px solid #DEDEE3;
+            }
+          }
+          &:not(:nth-child(3)) {
+            &:before {
+              content: '';
+              background: #DEDEE3;
+              width: 1px;
+              top: 0;
+              bottom: 0;
+              right: -1.5rem;
+              position: absolute;
+              @include media-md {
+                display: none;
+              }
+            }
+          }
+          &:last-child {
+            margin-top: 1.5rem;
+            border-top: 1px solid #DEDEE3;
+            padding-top: 1.5rem;
+
+            @include media-md {
+              margin: 0;
+              border-top: 0;
+              padding-top: 0;
+            }
+
+            &:after {
+              content: '';
+              background: #DEDEE3;
+              width: 1px;
+              position: absolute;
+              top: 1.5rem;
+              bottom: 0;
+              left: -1.5rem;
+              @include media-md {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.motorcycles {
+      .lists {
+        justify-content: center;
+      }
+    }
+  }
+
+  --r1Size: 80rem;
+  --r1Background: linear-gradient(225deg, #FFFFFF 0%, rgba(255, 255, 255, .15) 100%);
+  --r1R: -50rem;
+  --r1T: -40rem;
+  --r1Opacity: 1;
+  --r1Visibility: visible;
+
+  --r2Size: 80rem;
+  --r2Background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, .15) 100%);
+  --r2L: -50rem;
+  --r2B: -40rem;
+  --r2Visibility: visible;
+
+  --r3Size: 50rem;
+  --r3Background: linear-gradient(120deg, #FFFFFF 0%, rgba(255, 255, 255, .05) 100%);
+  --r3L: -25rem;
+  --r3T: -25rem;
+  --r3Opacity: 1;
+  --r3Visibility: visible;
+
+  --r4Size: 50rem;
+  --r4Background: linear-gradient(300deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+  --r4R: -25rem;
+  --r4B: -25rem;
+  --r4Opacity: 1;
+  --r4Visibility: visible;
+
+  @import "inc-rounded1";
+  @import "inc-rounded2";
+  @import "inc-rounded3";
+  @import "inc-rounded4";
+}

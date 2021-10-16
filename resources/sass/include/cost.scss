@@ -1,0 +1,102 @@
+section.cost {
+  padding-top: 3rem;
+  .container.head {
+    overflow: hidden;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+    justify-content: center;
+    @include media-md {
+      margin: -1rem 0;
+    }
+    .card {
+      flex: 0 0 calc(50% - 2rem);
+      margin: 1rem;
+      background: #E9E9ED;
+      box-shadow: none;
+      padding: 0 2rem 2rem 2rem;
+      border-radius: 1.25rem;
+      @include media-md {
+        flex: 0 0 100%;
+        margin: 1rem 0;
+      }
+      @include media-sm {
+        padding: 0 2rem 1.5rem 1.5rem;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        @include media-sm {
+          margin-bottom: 1rem;
+        }
+        @include media-xs {
+          flex-direction: column;
+          align-items: baseline;
+        }
+        .img-div {
+          display: flex;
+          position: relative;
+          margin-right: 2.5rem;
+          flex: 0 0 92px;
+          @include media-md {
+            flex: 0 0 72px;
+          }
+          @include media-sm {
+            margin-right: 2rem;
+          }
+          &:before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            right: -1rem;
+            top: -1rem;
+            bottom: -1rem;
+            background: white;
+            border-bottom-right-radius: 1.25rem;
+            @include media-sm {
+              right: -.5rem;
+            }
+            @include media-xs {
+              bottom: -.5rem;
+            }
+          }
+          img {
+            width: 76px;
+            height: 76px;
+            object-fit: contain;
+            z-index: 10;
+            margin: 0 1rem 0 0;
+            @include media-md {
+              width: 56px;
+              height: 56px;
+            }
+            @include media-xs {
+              width: 46px;
+              height: 46px;
+              margin: 1rem 1rem 0 0;
+            }
+          }
+        }
+        .title-div {
+          width: 100%;
+          border-bottom: 1px solid #C8C8CC;
+          padding: 2.25rem 0;
+          @include media-md {
+            padding: 1.6rem 0;
+          }
+          @include media-xs {
+            padding: 2rem 0 1rem 0;
+          }
+          h3 {
+            @include media-sm {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,482 @@
+#wrapper__header {
+  padding: .875rem 0;
+  position: fixed;
+  z-index: 99;
+  background: white;
+  width: 100%;
+  transition: padding .3s ease, box-shadow .3s ease, max-height .3s ease;
+  box-shadow: none;
+  max-height: 5rem;
+  &.scrolling {
+    padding: .25rem 0;
+    box-shadow: 0 .25rem 1.375rem rgba(0, 0, 0, 0.25) !important;
+    max-height: 3.75rem;
+    .navbar {
+      .navbar-brand .navbar-item + small {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      .navbar-end {
+        .phone {
+          background: $dark !important;
+          border-color: $dark !important;
+          &:before {
+            background-color: $danger !important;
+            background-image: url("../images/phone-w.png") !important;
+          }
+          span {
+            color: white !important;
+          }
+        }
+      }
+      .navbar-start {
+        @include media-md {
+          height: calc(100vh - 3.75rem) !important;
+          margin-top: 3.75rem !important;
+        }
+      }
+    }
+    & + #headerMenu {
+      top: 3.75rem;
+    }
+  }
+  .navbar {
+    @include media-sm {
+      padding: 0 1.5rem;
+    }
+    @include media-xs {
+      justify-content: space-between;
+    }
+    .navbar-burger {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: $second;
+      border-radius: 10rem;
+      margin-right: 1rem;
+      @media screen and (min-width: 744px) {
+        display: none;
+      }
+      @include media-md {
+        display: block;
+        margin: 0 1rem 0 0;
+      }
+      @include media-xs {
+        margin: 0;
+      }
+      span {
+        height: .125rem;
+        color: $dark;
+      }
+    }
+    .navbar-brand {
+      .navbar-item {
+        padding: 0;
+        text-decoration: none !important;
+        img {
+          max-height: initial;
+          @include media-lg {
+            width: 8.125rem;
+          }
+          @include media-sm {
+            width: 7rem;
+          }
+          @include media-xs {
+            width: 5.5rem;
+          }
+        }
+        & + small {
+          color: $dark;
+          font-size: 0.875rem;
+          line-height: .9375rem;
+          margin-left: 1.5rem;
+          transition: visibility .3s ease, opacity .3s ease;
+          pointer-events: none;
+          @include media-lg {
+            display: none;
+          }
+        }
+      }
+    }
+    .navbar-menu {
+      @include media-md {
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+      @include media-sm {
+        box-shadow: none;
+      }
+      @include media-xs {
+        margin: 0;
+      }
+      .navbar-start {
+        margin-left: auto;
+        margin-right: 0;
+        overflow: hidden;
+        display: flex;
+        &.is-active {
+          left: 0;
+          a {
+            border: 0 !important;
+          }
+        }
+        @media screen and (min-width: 744px) {
+          display: flex !important;
+        }
+        @include media-md {
+          flex-direction: column;
+          position: fixed;
+          left: -62.5rem;
+          top: 0;
+          width: 17.5rem;
+          z-index: -10;
+          transition: left 1s ease, margin .3s ease, height .3s ease;
+          background: #E9E9ED;
+          height: calc(100vh - 5rem);
+          margin-top: 5rem;
+          padding: 1.25rem 1rem 1rem 2rem;
+          &:before {
+            position: absolute;
+            right: -6px;
+            top: 0;
+            bottom: 0;
+            content: "";
+            box-shadow: 0 0.25rem 1.375rem rgb(0 0 0 / 10%);
+            width: 6px;
+          }
+        }
+        .start {
+          display: flex;
+          @include media-md {
+            flex-direction: column;
+          }
+        }
+        .end {
+          display: none;
+          position: relative;
+          margin-top: 1rem;
+          flex: 1;
+          flex-direction: column;
+          &:before {
+            background: white;
+            position: absolute;
+            content: "";
+            left: -10rem;
+            top: 1.2rem;
+            bottom: -100vh;
+            right: -10rem;
+            z-index: -1;
+          }
+          @include media-md {
+            display: flex;
+          }
+          .phone {
+            border-radius: 2.875rem;
+            padding-left: 2.125rem !important;
+            padding-right: 0 !important;
+            background: $danger;
+            position: relative;
+            margin: 0 auto 0 0;
+            display: flex !important;
+            max-width: 180px;
+            line-height: 1 !important;
+            white-space: nowrap !important;
+            height: 2.5em !important;
+            &:before {
+              content: '';
+              width: 2rem;
+              height: 2rem;
+              background-color: $dark;
+              background-image: url("../images/phone-w.png");
+              background-size: .9rem;
+              background-repeat: no-repeat;
+              background-position: center;
+              border-radius: 2rem;
+              left: .45rem;
+              top: 50%;
+              transform: translate(0, -50%);
+              position: absolute;
+            }
+            span {
+              padding: .6875rem 1.625rem .6875rem 1.2rem;
+              color: white;
+              font-weight: bold;
+              font-size: 1rem;
+              text-decoration: none !important;
+            }
+          }
+          .end-menu {
+            position: relative;
+            padding-top: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            div {
+              display: flex;
+              flex-direction: column;
+              flex: 1 0 1vh;
+              overflow-x: hidden;
+            }
+            &:before {
+              height: 1px;
+              background: #E9E9ED;
+              content: '';
+              position: absolute;
+              left: -10rem;
+              right: -10rem;
+              top: 0;
+            }
+            h4 {
+              color: #272346;
+              font-weight: bold;
+              margin: 0 0 .5rem 0.75rem;
+              font-size: 1.1rem;
+            }
+            .navbar-item {
+              font-weight: normal;
+            }
+          }
+        }
+        .navbar-item {
+          border-bottom: .1875rem solid transparent;
+          padding-left: 0;
+          padding-right: 0;
+          margin: 0 .75rem -.1875rem .75rem;
+          background: transparent !important;
+          text-decoration: none !important;
+          color: $dark !important;
+          font-weight: bold;
+          @include media-md {
+            width: 100%;
+            margin-right: 0;
+          }
+          &[data-target="car-modal-quote"], &[data-target="motorcycle-modal-quote"] {
+            @include media-md {
+              background: $dark !important;
+              margin: .5rem 0 0 0;
+              max-width: 180px;
+              padding: .5rem 1rem!important;
+              border-radius: 10rem;
+              color: white !important;
+              text-align: center;
+            }
+          }
+          &:hover, &.is-active {
+            border-bottom: .1875rem solid $danger;
+          }
+        }
+      }
+      .navbar-end {
+        margin-left: 1.25rem;
+        @include media-xs {
+          margin: 0;
+        }
+        .navbar-item {
+          padding: 0;
+        }
+        .search {
+          padding: 0;
+          width: 2.875rem;
+          height: 2.875rem;
+          border-radius: 2.875rem;
+          background: transparent;
+          margin-left: 1.125rem;
+          svg {
+            @include media-lg {
+              height: 1.125rem !important;
+              width: 1.125rem !important;
+            }
+          }
+          @include media-lg {
+            height: 2.5rem !important;
+            width: 2.5rem !important;
+          }
+          @include media-md {
+            display: none !important;
+          }
+        }
+        .phone {
+          height: 2.875rem;
+          border-radius: 2.875rem;
+          padding-left: 2.125rem;
+          padding-right: 0;
+          background: transparent;
+          transition: background .3s ease, border-color .3s ease, color .3s ease;
+          text-decoration: none !important;
+          position: relative;
+          @include media-xs {
+            height: 2.5rem !important;
+            width: 2.5rem !important;
+            padding: 0;
+            border: 0;
+          }
+          &:before {
+            content: '';
+            width: 2rem;
+            height: 2rem;
+            transition: background-color .3s ease, background-image .3s ease;
+            background-color: $second;
+            background-image: url("../images/phone.png");
+            background-size: 1rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 2rem;
+            left: .625rem;
+            top: 50%;
+            transform: translate(0, -50%);
+            position: absolute;
+            @include media-lg {
+              height: 1.75rem !important;
+              width: 1.75rem !important;
+              background-size: .875rem;
+            }
+            @include media-xs {
+              height: 2.5rem !important;
+              width: 2.5rem !important;
+              left: 0;
+              top: 0;
+              transform: none;
+              background-size: 1rem;
+            }
+          }
+          @include media-lg {
+            height: 2.5rem;
+          }
+          span {
+            padding: .6875rem 1.625rem;
+            color: $dark;
+            font-weight: bold;
+            font-size: 1.125rem;
+            text-decoration: none !important;
+            @include media-lg {
+              font-size: 1rem;
+              padding: 0 1.0625rem;
+            }
+            @include media-xs {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#headerMenu {
+  width: 100%;
+  position: fixed;
+  top: 5rem;
+  background: white;
+  transition: transform .5s ease;
+  transform: translateY(-200%);
+  box-shadow: 0 1.25rem 1.375rem rgba(0, 0, 0, 0.1);
+  z-index: 98;
+  overflow: hidden;
+  &.show {
+    transform: translateY(0);
+  }
+  .header-menu {
+    transition: visibility .3s ease, opacity .3s ease;
+    visibility: hidden;
+    opacity: 0;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .column {
+      display: flex;
+      .first {
+        flex: 1 0 30rem;
+        padding: 3rem 3rem 5rem 0;
+        position: relative;
+        @include media-lg {
+          flex: 1 0 18.75rem;
+          padding: 2rem 2rem 3rem 0;
+        }
+        a {
+          text-decoration: none;
+          font-weight: 500;
+          &:hover {
+            color: $danger !important;
+          }
+        }
+        &:before {
+          content: "";
+          background: $second;
+          top: 0;
+          bottom: 0;
+          position: absolute;
+          right: 0;
+          z-index: -1;
+          width: 100vw;
+        }
+        .img {
+          position: absolute;
+          width: 9.9375rem;
+          right: 1.25rem;
+          bottom: 0;
+          @include media-lg {
+            width: 6.8125rem;
+          }
+        }
+        ul {
+          font-weight: bold;
+          font-size: 1.125rem;
+          line-height: 2.2;
+          margin-top: 1rem;
+        }
+      }
+      .second {
+        flex: 1 0 calc(100% - 30rem);
+        position: relative;
+        padding: 3rem;
+        @include media-lg {
+          flex: 1 0 calc(100% - 18.75rem);
+          padding: 2rem;
+        }
+        .p-title {
+          margin-bottom: 1.3rem;
+        }
+        .p-text {
+          max-width: 25rem;
+          margin-bottom: 1.5rem;
+          @include media-lg {
+            max-width: 20rem;
+          }
+        }
+        .button {
+          padding: 1.3rem 4rem;
+          color: white;
+          font-size: 1rem;
+          font-weight: 600;
+          box-shadow: 0 0.25rem 1.25rem rgb(0 0 0 / 15%);
+          &:after {
+            display: none;
+          }
+          &:before {
+            background-image: url('../images/arrow-b.png');
+            opacity: 0.15;
+          }
+        }
+        .img {
+          position: absolute;
+          width: 7.0625rem;
+          left: 2.5rem;
+          bottom: 0;
+          @include media-lg {
+            width: 5rem;
+          }
+        }
+        .img2 {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translate(0, -50%);
+          @include media-lg {
+            width: 22.5rem;
+          }
+        }
+      }
+    }
+  }
+}

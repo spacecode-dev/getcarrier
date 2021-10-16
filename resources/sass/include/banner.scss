@@ -1,0 +1,232 @@
+section.banner {
+  position: relative;
+  padding-bottom: 0;
+  padding-top: 13rem;
+  z-index: 30;
+  background-image: linear-gradient(0.6deg, $dark 100%, rgba(0, 0, 0, 0) 75.96%);
+
+  @include media-lg {
+    padding-top: 11rem;
+  }
+
+  @include media-md {
+    padding-top: 9rem;
+  }
+
+  @include media-sm {
+    padding-top: 8rem;
+  }
+
+  .container {
+    z-index: 10;
+
+    .columns.mb-6 {
+      @include media-sm {
+        margin-bottom: 1.5rem !important;
+      }
+    }
+
+    h1 {
+      position: relative;
+      padding-bottom: 4rem;
+      @include media-lg {
+        padding-bottom: 3.6rem;
+      }
+
+      @include media-sm {
+        padding-bottom: 2.4rem;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        width: 6.5625rem;
+        height: .1875rem;
+        background: rgba(255, 255, 255, 0.3);
+        @include media-lg {
+          bottom: 1.6rem;
+        }
+        @include media-sm {
+          bottom: .9rem;
+        }
+      }
+    }
+
+    ul.list {
+      font-size: 1.35rem;
+      line-height: 1.7;
+      padding-left: 1.5rem;
+      list-style-image: url('../images/check.png');
+
+      @include media-lg {
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      @include media-sm {
+        font-size: 1.1rem;
+      }
+
+      li {
+        padding-left: .5rem;
+      }
+    }
+
+    .images {
+      width: 55rem;
+      margin: 0 auto;
+      @include media-lg {
+        width: 37.5rem;
+      }
+
+      @include media-sm {
+        display: none;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        img {
+          @include media-lg {
+            max-width: 8.75rem;
+            max-height: 1.875rem;
+          }
+        }
+      }
+    }
+  }
+
+  .truck {
+    min-width: 68.75rem;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 100%;
+    object-fit: cover;
+
+    @include media-sm {
+      display: none;
+    }
+  }
+
+  .div-to-bottom {
+    display: flex;
+    justify-content: center;
+    padding-top: 6rem;
+
+    @include media-lg {
+      padding-top: 3rem;
+    }
+
+    @include media-sm {
+      padding-top: 0;
+    }
+
+    .to-bottom {
+      background: transparent;
+      border: 0 !important;
+      outline: none !important;
+      position: relative;
+      margin-bottom: 1rem;
+      cursor: pointer;
+
+      @include media-lg {
+        margin-bottom: .5rem;
+      }
+
+      svg {
+        color: white;
+        width: 1rem;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 11.5rem;
+        height: 7.1875rem;
+        top: -1rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 100%);
+        opacity: .1;
+        border-radius: 6.25rem;
+
+        @include media-lg {
+          width: 9.625rem;
+          height: 6.25rem;
+          top: -.75rem;
+        }
+      }
+    }
+  }
+
+  .tags {
+    .div-list {
+      align-items: stretch;
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: .5rem;
+      max-width: 84rem;
+      @include media-lg {
+        max-width: 60rem;
+      }
+      @include media-md {
+        max-width: 45rem;
+      }
+      @include media-sm {
+        max-width: calc(100vw - 2.25rem);
+      }
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        height: .25rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: .25rem;
+        background-color: rgba(255, 255, 255, .7);
+      }
+    }
+    h5 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+    .list {
+      .button {
+        font-weight: 600;
+        text-decoration: none;
+        color: $dark;
+        font-size: .85rem;
+        border: 0;
+        box-shadow: none;
+        @include media-xs {
+          display: inline-flex !important;
+          min-height: auto !important;
+          height: auto !important;
+        }
+        &:not(:last-child) {
+          margin-right: .5rem;
+        }
+        &:hover {
+          color: $danger;
+        }
+      }
+    }
+  }
+
+  --r1Size: 40rem;
+  --r1Background: white;
+  --r1L: -26.875rem;
+  --r1B: -26.875rem;
+  --r1Opacity: .1;
+  --r1Visibility: visible;
+
+  @import "inc-rounded1";
+}

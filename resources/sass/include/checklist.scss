@@ -1,0 +1,102 @@
+section.checklist {
+  .lists {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+    overflow: hidden;
+    .list {
+      flex: 1 0 calc(20% - 2rem);
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      @include media-md {
+        flex: 1 0 calc(33.3% - 2rem);
+      }
+      @include media-sm {
+        flex: 1 0 calc(50% - 2rem);
+      }
+      @include media-xs {
+        flex: 1 0 100%;
+        width: 100%;
+      }
+      &:nth-child(5n+5) {
+        &:before {
+          display: none;
+          @include media-md {
+            display: block;
+          }
+        }
+      }
+      &:nth-child(3n+3), &:last-child {
+        &:before {
+          @include media-md {
+            display: none;
+          }
+          @include media-sm {
+            display: block;
+          }
+        }
+      }
+      &:nth-child(2n+2), &:last-child {
+        &:before {
+          @include media-sm {
+            display: none;
+          }
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        width: 90px;
+        height: 1px;
+        right: -45px;
+        top: 60px;
+        background: #DADADF;
+        @include media-lg {
+          width: 50px;
+          right: -25px;
+        }
+        @include media-md {
+          width: 90px;
+          right: -45px;
+        }
+        @include media-sm {
+          width: 40%;
+          right: -20%;
+        }
+        @include media-xs {
+          display: none !important;
+        }
+      }
+      .icon {
+        width: 90px;
+        height: 90px;
+        background: white;
+        box-shadow: 0 4px 50px rgb(0 0 0 / 10%);
+        border-radius: 90px;
+        position: relative;
+        img {
+          max-width: 60%;
+        }
+        span {
+          width: 30px;
+          height: 30px;
+          font-weight: bold;
+          color: white;
+          background: $danger;
+          border-radius: 30px;
+          position: absolute;
+          right: -15px;
+          bottom: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      h4 {
+        line-height: 1.15;
+        margin-top: .5rem;
+      }
+    }
+  }
+}

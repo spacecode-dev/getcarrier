@@ -1,0 +1,18 @@
+.rounded {
+  position: absolute;
+  content: '';
+  border-radius: 100rem;
+  z-index: 0;
+
+  &.rounded2 {
+    width: var(--r2Size);
+    height: var(--r2Size);
+    background: var(--r2Background);
+    left: var(--r2L);
+    right: var(--r2R);
+    top: var(--r2T);
+    bottom: var(--r2B);
+    opacity: var(--r2Opacity);
+    visibility: var(--r2Visibility);
+  }
+}

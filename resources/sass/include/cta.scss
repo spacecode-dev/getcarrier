@@ -1,0 +1,57 @@
+section.cta {
+  background: $danger;
+  padding: 1.6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  .container {
+    z-index: 10;
+  }
+  .column {
+    @include media-md {
+      flex-direction: column !important;
+    }
+  }
+  h2 {
+    @include media-md {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  }
+  .button.cta {
+    &:hover {
+      background-color: $dark;
+      border-color: $dark;
+      color: white;
+    }
+  }
+
+  --r1Size: 75rem;
+  --r1Background: white;
+  --r1R: -12.5rem;
+  --r1B: -21.875rem;
+  --r1Opacity: .15;
+  --r1Visibility: visible;
+
+  --r2Size: 75rem;
+  --r2Background: white;
+  --r2R: -6.25rem;
+  --r2B: -21.875rem;
+  --r2Opacity: .15;
+  --r2Visibility: visible;
+
+  @include media-md {
+    --r1Size: 50rem;
+    --r2Size: 50rem;
+  }
+  @include media-sm {
+    --r1Size: 35rem;
+    --r2Size: 35rem;
+  }
+  @include media-xs {
+    --r1R: -22.5rem;
+    --r2R: -16.25rem;
+  }
+
+  @import "inc-rounded1";
+  @import "inc-rounded2";
+}

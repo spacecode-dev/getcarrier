@@ -1,0 +1,209 @@
+#wrapper__footer {
+  #cookie {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 98;
+    .cookie {
+      padding: 1rem 1.5rem .75rem 1.5rem;
+      .column {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        @include media-sm {
+          flex-direction: column;
+        }
+        p {
+          font-size: .9rem;
+          @include media-lg {
+            max-width: 43.75rem;
+          }
+          @include media-md {
+            max-width: 30rem;
+          }
+          @include media-sm {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            text-align: center;
+            margin-bottom: .75rem;
+            font-size: .75rem;
+          }
+          a {
+            text-decoration: underline;
+            @include media-sm {
+              font-size: .75rem;
+            }
+          }
+        }
+        .button {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 3.125rem;
+          border: 0;
+          color: white;
+          font-size: .9rem;
+          min-width: 4.375rem;
+        }
+      }
+    }
+  }
+  .div1 {
+    background: $second;
+    padding-top: .9375rem;
+    padding-bottom: .9375rem;
+    @include media-md {
+      padding-top: 1.2rem;
+      padding-bottom: 1rem;
+    }
+    .column {
+      @include media-md {
+        flex-direction: column;
+      }
+    }
+    img {
+      max-height: initial;
+      @include media-lg {
+        width: 8.125rem;
+      }
+      @include media-md {
+        margin-bottom: 1rem;
+      }
+    }
+    @import "inc-social";
+  }
+  .div2 {
+    background: white;
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+    border-bottom: .125rem solid $second;
+    @include media-lg {
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+    }
+    .cont {
+      margin-bottom: 2rem;
+    }
+    .contacts {
+      @include media-sm {
+        flex-direction: column;
+        align-items: flex-start !important;
+      }
+      div {
+        &:not(:first-child) {
+          margin-left: 2.5rem;
+          @include media-sm {
+            margin-top: 1.5rem;
+            margin-left: 0;
+          }
+        }
+        .image {
+          width: 2.875rem;
+          height: 2.875rem;
+          background: $second;
+          border-radius: 3.125rem;
+          margin-right: 1.0625rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .text {
+          color: $dark;
+          font-weight: bold;
+          font-size: 1rem;
+          text-decoration: none !important;
+          &.phone {
+            position: relative;
+            padding-left: 3.9375rem;
+            transition: color .3s ease;
+            &:hover {
+              color: $danger;
+              &:before {
+                background-color: $danger;
+                background-image: url('../images/phone-w.png');
+              }
+            }
+            &:before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translate(0, -50%);
+              width: 2.875rem;
+              height: 2.875rem;
+              background-color: $second;
+              border-radius: 3.125rem;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: 1.125rem;
+              background-image: url('../images/phone.png');
+              transition: background-color .3s ease, background-image .3s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+  .div3 {
+    background: white;
+    padding-top: 1.375rem;
+    padding-bottom: 1.375rem;
+    .column {
+      @include media-sm {
+        flex-direction: column;
+      }
+      @include media-xs {
+        flex-direction: row;
+        align-items: flex-start !important;
+      }
+    }
+    .breadcrumb {
+      ul {
+        @include media-xs {
+          display: flex;
+          flex-direction: column;
+        }
+        li {
+
+          @include media-xs {
+            margin: .3rem 0;
+          }
+
+          &:before {
+            display: none;
+          }
+
+          a {
+            color: $dark;
+            font-size: .875rem;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: text-decoration .3s ease, color .3s ease;
+            @include media-md {
+              padding: 0 0.5em;
+            }
+
+            &:hover {
+              color: $danger;
+              text-decoration: underline !important;
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      @include media-lg {
+        font-size: .875rem;
+      }
+      @include media-md {
+        font-size: .75rem;
+      }
+      @include media-sm {
+        margin-top: 1rem;
+      }
+      @include media-xs {
+        margin-top: .3rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+$gap: 32px;
+$widescreen: 960px + (2 * $gap) !default;
+$desktop: 705px + (2 * $gap) !default;
+
+$dark: #272346;
+$muted: #83818F;
+$danger: #F63E41;
+$second: #E9E9ED;
+$grey: #DEDEE3;
+
+@import 'node_modules/bulma/bulma.sass';
+@import 'node_modules/aos/src/sass/aos.scss';
+@import 'include/mixin';
+@import 'resources/sass/include/header';
+@import 'resources/sass/include/container';
+#wrapper__body {
+  font-family: "PT Sans", sans-serif;
+  color: $muted;
+  overflow: hidden;
+  &.swal2-shown {
+    padding: 0 !important;
+  }
+  &.modal-open {
+    #toTop {
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+  h1, h2, h3 {
+    color: $dark;
+    br {
+      @include media-xs {
+        display: none;
+      }
+    }
+  }
+  h1 {
+    font-size: 3.4rem;
+    line-height: 1.3;
+    @include media-lg {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+    @include media-sm {
+      font-size: 2.8rem;
+    }
+    @include media-xs {
+      font-size: 2.4rem;
+    }
+  }
+  .is-size-6 {
+    font-size: 1.125rem !important;
+    @include media-lg {
+      font-size: 1rem !important;
+    }
+  }
+  .is-size-4 {
+    @include media-lg {
+      font-size: 1.3rem !important;
+    }
+  }
+  .is-size-3 {
+    @include media-lg {
+      font-size: 1.9rem !important;
+    }
+    @include media-xs {
+      font-size: 1.6rem !important;
+    }
+  }
+  h2 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    @include media-lg {
+      font-size: 2.4rem;
+    }
+    @include media-sm {
+      font-size: 2.2rem;
+    }
+    @include media-xs {
+      font-size: 1.8rem;
+    }
+  }
+  h3 {
+    font-size: 1.375rem;
+  }
+  ul, ol {
+    font-size: 1.125rem;
+    @include media-lg {
+      font-size: 1rem;
+    }
+  }
+  a {
+    color: $muted;
+    &:hover {
+      color: $danger;
+      text-decoration: underline;
+    }
+  }
+  p {
+    font-size: 1.125rem;
+    color: $muted;
+    @include media-lg {
+      font-size: 1rem;
+    }
+    &.subtitle {
+      font-size: 1.56rem;
+      margin-top: 1rem;
+      @include media-lg {
+        font-size: 1.25rem;
+      }
+      @include media-md {
+        margin-top: .5rem;
+      }
+      @include media-sm {
+        font-size: 1.125rem;
+      }
+      &.side-bordered {
+        position: relative;
+        display: inline-flex;
+        &:before, &:after {
+          content: "";
+          background: $grey;
+          height: .0625rem;
+          width: calc(100% - 1rem);
+          position: absolute;
+          top: 1rem;
+        }
+        &:before {
+          left: -100%;
+        }
+        &:after {
+          right: -100%;
+        }
+      }
+    }
+  }
+  .content-tab {
+    &.step-1, &.step-2, &.step-3 {
+      .button {
+        @include media-xs {
+          min-height: 3.125rem !important;
+          height: 3.125rem !important;
+        }
+      }
+    }
+  }
+  .button {
+    @include media-xs {
+      display: block !important;
+      min-height: auto !important;
+      padding: .5rem 1rem !important;
+      white-space: pre-line !important;
+      height: auto !important;
+      line-height: 1.2 !important;
+    }
+
+    &.cta {
+      font-family: "PT Sans", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 1.85rem 4rem;
+      text-decoration: none !important;
+      box-shadow: 0 .25rem 1.25rem rgba(0, 0, 0, .25);
+      margin-right: 3rem;
+      line-height: 0;
+      transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+      @include media-lg {
+        margin-right: 2.2rem;
+        font-size: 1rem;
+      }
+      @include media-md {
+        margin: 0;
+        padding: 1.6rem 3rem;
+      }
+      @include media-480 {
+        white-space: break-spaces;
+        padding: 0 2rem;
+        height: auto;
+        min-height: 2.5rem;
+      }
+      &.runnable {
+        &:before {
+          animation-name: runRight4;
+          animation-duration: 1.5s;
+          animation-iteration-count: infinite;
+        }
+        &:after {
+          animation-name: runLeft4;
+          animation-duration: 1.5s;
+          animation-iteration-count: infinite;
+        }
+      }
+      &:not(.runnable) {
+        &:hover {
+          &:before {
+            right: -3rem;
+            @include media-lg {
+              right: -2.5rem;
+            }
+          }
+          &:after {
+            left: -3rem;
+            @include media-lg {
+              left: -2.5rem;
+            }
+          }
+        }
+      }
+      &:before, &:after {
+        content: '';
+        background-image: url("../images/arrow.png");
+        background-size: 2.75rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        position: absolute;
+        pointer-events: none;
+        transition: background-size .3s ease, background-image .3s ease, right .3s ease, left .3s ease;
+        @include media-lg {
+          background-size: 2.125rem;
+          width: 2.125rem;
+          height: 2.125rem;
+        }
+      }
+      &:before {
+        right: -4rem;
+        @include media-lg {
+          right: -3rem;
+        }
+        @include media-xs {
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+      }
+      &:after {
+        left: -4rem;
+        transform: rotate(180deg);
+        @include media-lg {
+          left: -3rem;
+        }
+        @include media-xs {
+          top: 50%;
+          transform: translate(0, -50%) rotate(180deg);
+        }
+      }
+      &.phone {
+        font-weight: 700;
+        background-color: transparent;
+        border: .0625rem solid white;
+        margin-right: 0;
+        padding: 1.85rem 3rem 1.85rem 5rem;
+        @include media-md {
+          padding: 1.6rem 2rem 1.6rem 4rem;
+        }
+        @include media-xs {
+          padding: .5rem 2rem .5rem 3rem !important;
+        }
+        &:before {
+          content: '';
+          background-image: url("../images/phone-w.png");
+          width: 1.25rem;
+          height: 1.25rem;
+          position: absolute;
+          left: 2.5rem;
+          background-size: contain;
+          background-repeat: no-repeat;
+          top: 50%;
+          transform: translate(0, -50%);
+          @include media-xs {
+            left: 1.2rem !important;
+          }
+        }
+        &:after {
+          @include media-xs {
+            transform: translate(0, -50%) rotate(180deg);
+            top: 50%;
+          }
+        }
+      }
+    }
+  }
+  section {
+    &.section {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      @include media-lg {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      @include media-sm {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+    }
+  }
+  &.template-4 {
+    #wrapper__content {
+      @import 'resources/sass/include/sub-content';
+    }
+  }
+  .breadcrumb {
+    li {
+      font-size: .875rem;
+      white-space: break-spaces;
+      line-height: 1.2;
+      margin: .15rem 0;
+      & + li::before {
+        color: $muted;
+      }
+      &:not(.is-active) {
+        a {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+  &.template-5 {
+    #wrapper__content {
+      @import 'resources/sass/include/single-page';
+    }
+  }
+  #wrapper__content {
+    @import 'resources/sass/include/content';
+  }
+  &.single-guide {
+    #wrapper__header {
+      box-shadow: 0 0.25rem 1.375rem rgb(0 0 0 / 7%);
+    }
+    #wrapper__content {
+      @import 'resources/sass/include/single-guide';
+    }
+  }
+  &.guides, &.single-guide {
+    #wrapper__header {
+      top: 0;
+    }
+    #wrapper__content {
+      @import 'resources/sass/include/guides';
+    }
+    #wrapper__header {
+      .div2 {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  @import "include/inc-stars";
+}
+#toTop {
+  position: fixed;
+  background: $danger;
+  border-radius: 3.125rem 3.125rem 0 0;
+  bottom: 0;
+  right: 6rem;
+  width: 3.125rem;
+  height: 1.8125rem;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  border: 0;
+  transition: opacity .3s ease, visibility .3s ease;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 999;
+  @include media-lg {
+    right: 1rem;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: .5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:before {
+    content: '';
+    background-image: url('../images/arrow.png');
+    width: 1.8125rem;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: .1875rem;
+    transform: translate(-50%, 0) rotate(90deg);
+    background-size: 1.5rem;
+    background-position: center;
+  }
+}
+
+@-webkit-keyframes runLeft4 {
+  0% {left: -4rem;}
+  50% {left: -3rem;}
+  100% {left: -4rem;}
+}
+@keyframes runLeft4 {
+  0% {left: -4rem;}
+  50% {left: -3rem;}
+  100% {left: -4rem;}
+}
+@include media-lg {
+  @-webkit-keyframes runLeft4 {
+    0% {left: -3rem;}
+    50% {left: -2.5rem;}
+    100% {left: -3rem;}
+  }
+  @keyframes runLeft4 {
+    0% {left: -3rem;}
+    50% {left: -2.5rem;}
+    100% {left: -3rem;}
+  }
+}
+
+@-webkit-keyframes runRight4 {
+  0% {right: -4rem;}
+  50% {right: -3rem;}
+  100% {right: -4rem;}
+}
+@keyframes runRight4 {
+  0% {right: -4rem;}
+  50% {right: -3rem;}
+  100% {right: -4rem;}
+}
+@include media-lg {
+  @-webkit-keyframes runRight4 {
+    0% {right: -3rem;}
+    50% {right: -2.5rem;}
+    100% {right: -3rem;}
+  }
+  @keyframes runRight4 {
+    0% {right: -3rem;}
+    50% {right: -2.5rem;}
+    100% {right: -3rem;}
+  }
+}
+
+@-webkit-keyframes shakeYCustom {
+  from, to {transform: translate3d(0, 0, 0);}
+  10%, 30%, 50%, 70%, 90% {transform: translate3d(0, -.0625rem, 0);}
+  20%, 40%, 60%, 80% {transform: translate3d(0, .0625rem, 0);}
+}
+@keyframes shakeYCustom {
+  from, to {transform: translate3d(0, 0, 0);}
+  10%, 30%, 50%, 70%, 90% {transform: translate3d(0, -.0625rem, 0);}
+  20%, 40%, 60%, 80% {transform: translate3d(0, .0625rem, 0);}
+}
+.animate__shakeYCustom {
+  animation-name: shakeYCustom;
+}
+.animate__animated.animate__moreSlower {
+  animation-duration: calc(1s * 5);
+}
+
+@import 'resources/sass/include/footer';
+@import 'resources/sass/include/accordion';
+@import 'resources/sass/include/modal';
